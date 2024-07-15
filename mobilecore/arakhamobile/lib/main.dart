@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: Text(
-                'Arakha Web',
+                "Arakha Web...",
                 style: TextStyle(fontSize: 48, color: Colors.green),
               ),
             ),
