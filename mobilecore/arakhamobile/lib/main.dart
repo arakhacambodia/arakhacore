@@ -42,7 +42,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   String _formatDate(DateTime dateTime) {
-    return DateFormat('yyyy-MM-dd (EEEE)', 'km').format(dateTime);
+    Localizations.localeOf(context).languageCode;
+    return DateFormat('EEEE dd MMM yyyy', 'km').format(dateTime);
   }
 
   @override
