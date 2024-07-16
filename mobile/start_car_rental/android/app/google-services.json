@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550397871514",
+    "project_id": "arakha-car-rental",
+    "storage_bucket": "arakha-car-rental.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550397871514:android:2b505f8d6ae93b0cea6623",
+        "android_client_info": {
+          "package_name": "com.arakha.startcarrental"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD543X4g9prk_R6HttfDAy1cOk8aBuGChw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
