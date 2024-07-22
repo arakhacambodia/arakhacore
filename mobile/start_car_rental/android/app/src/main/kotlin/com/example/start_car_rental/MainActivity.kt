@@ -1,4 +1,4 @@
-package com.example.start_car_rental
+package com.arakha.startcarrental
 
 import io.flutter.embedding.android.FlutterActivity
 
