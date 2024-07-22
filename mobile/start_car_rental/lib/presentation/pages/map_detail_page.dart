@@ -13,9 +13,15 @@ class MapDetailPage extends StatelessWidget {
       ),
       body: FlutterMap(
         options: MapOptions(
-          initialCenter: LatLng(51, 0.09),
-          initialZoom: 10,
+          center: LatLng(51, 0.09),
+          zoom: 10,
         ),
+        layers: [
+          TileLayerOptions(
+            urlTemplate: "https://{{s}}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            subdomains: ['a', 'b', 'c'],
+          ),
+        ],
         children: [],
       ),
     );
