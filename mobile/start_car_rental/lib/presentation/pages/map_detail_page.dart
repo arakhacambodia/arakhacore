@@ -12,17 +12,26 @@ class MapDetailPage extends StatelessWidget {
         backgroundColor: Colors.red,
       ),
       body: FlutterMap(
-        options: MapOptions(
-          center: LatLng(51, 0.09),
-          zoom: 10,
+        options: const MapOptions(
+          initialCenter: LatLng(51, 0.09),
+          initialZoom: 10,
         ),
-        layers: [
-          TileLayerOptions(
-            urlTemplate: "https://{{s}}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            subdomains: ['a', 'b', 'c'],
+        children: [
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'com.example.app',
+          ),
+          const MarkerLayer(
+            markers: [
+              Marker(
+                point: LatLng(11, 15),
+                child: FlutterLogo(),
+                width: 80,
+                height: 80,
+              )
+            ],
           ),
         ],
-        children: [],
       ),
     );
   }
