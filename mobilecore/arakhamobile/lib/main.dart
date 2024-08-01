@@ -60,38 +60,42 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.sizeOf(context);
     double width = size.width;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: isDarkTheme ? ThemeData.dark() : ThemeData.light(),
       home: SafeArea(
         child: Scaffold(
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Container(
-                  alignment: Alignment.centerRight,
+                Expanded(
+                  flex: 1,
                   child: ToggleButtonWidget(isOn: isDarkTheme, toggle: toggle),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              dateString,
-                              style: GoogleFonts.kantumruyPro(fontSize: width * 0.08),
-                            ),
-                            Text(
-                              timeString,
-                              style: TextStyle(fontSize: width * 0.06),
-                            ),
-                          ],
-                        )),
-                  ],
+                Expanded(
+                  flex: 11,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                dateString,
+                                style: GoogleFonts.kantumruyPro(fontSize: width * 0.08),
+                              ),
+                              Text(
+                                timeString,
+                                style: TextStyle(fontSize: width * 0.06),
+                              ),
+                            ],
+                          )),
+                    ],
+                  ),
                 ),
               ],
             ),
