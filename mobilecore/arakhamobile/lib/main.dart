@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:arakhamobile/widgets/toggle_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -18,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isDarkTheme = false;
+
   late String dateString;
   late String timeString;
 
@@ -46,11 +49,18 @@ class _HomePageState extends State<HomePage> {
     return DateFormat('EEEE dd MMM yyyy', 'km').format(dateTime);
   }
 
+  void toggle() {
+    setState(() {
+      isDarkTheme = !isDarkTheme;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.sizeOf(context);
     double width = size.width;
     return MaterialApp(
+      theme: isDarkTheme ? ThemeData.dark() : ThemeData.light(),
       home: SafeArea(
         child: Scaffold(
           body: Center(
@@ -59,20 +69,30 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          dateString,
-                          style: GoogleFonts.kantumruyPro(fontSize: width * 0.08),
-                        ),
-                        Text(
-                          timeString,
-                          style: TextStyle(fontSize: width * 0.06),
-                        ),
-                      ],
-                    )),
+                  alignment: Alignment.centerRight,
+                  child: ToggleButtonWidget(isOn: isDarkTheme, toggle: toggle),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              dateString,
+                              style: GoogleFonts.kantumruyPro(fontSize: width * 0.08),
+                            ),
+                            Text(
+                              timeString,
+                              style: TextStyle(fontSize: width * 0.06),
+                            ),
+                          ],
+                        )),
+                  ],
+                ),
               ],
             ),
           ),
