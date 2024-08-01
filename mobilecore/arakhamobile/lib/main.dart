@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   String _formatDate(DateTime dateTime) {
-    return DateFormat('EEEE dd MMM yyyy', 'km').format(dateTime);
+    return DateFormat('EEEE dd MMM yyyy', isKhmer ? 'km' : 'en').format(dateTime);
   }
 
   void toggle() {
